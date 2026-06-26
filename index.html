@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elías Brown · Agroecología &amp; Bioconstrucción</title>
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet" />
+    <style>
+        /* ----- RESET Y VARIABLES ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --verde-oscuro: #5A6B53;   /* salvia */
+            --verde-claro: #b8cfc1;    /* menta pálida */
+            --marron: #9C5E3A;         /* arcilla */
+            --gris: #f5f3f0;
+            --blanco: #ffffff;
+            --negro: #1e1e1e;
+            --sombra: 0 4px 20px rgba(0,0,0,0.06);
+            --radio: 12px;
+            --fuente-cuerpo: 'Montserrat', sans-serif;
+            --fuente-titulo: 'Playfair Display', serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: var(--fuente-cuerpo);
+            background-color: var(--gris);
+            color: var(--negro);
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--blanco);
+            border-radius: var(--radio);
+            box-shadow: var(--sombra);
+            padding: 2rem 2.5rem;
+        }
+        /* ----- TIPOGRAFÍA ----- */
+        h1, h2, h3 {
+            font-family: var(--fuente-titulo);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        h1 {
+            font-size: 3.2rem;
+            line-height: 1.1;
+        }
+        h1 .verde {
+            color: var(--verde-oscuro);
+        }
+        h1 .marrón {
+            color: var(--marrón);
+        }
+        h2 {
+            font-size: 2.2rem;
+            color: var(--verde-oscuro);
+            border-bottom: 4px solid var(--verde-claro);
+            padding-bottom: 0.4rem;
+            margin-bottom: 1.8rem;
+        }
+        h3 {
+            font-size: 1.4rem;
+            color: var(--marrón);
+            margin-bottom: 0.5rem;
+        }
+        .subtitulo {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #555;
+            margin-top: -0.3rem;
+            margin-bottom: 1.5rem;
+        }
+        .tag {
+            display: inline-block;
+            background: var(--verde-claro);
+            color: var(--verde-oscuro);
+            font-weight: 600;
+            font-size: 0.75rem;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        /* ----- NAVEGACIÓN ----- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--verde-claro);
+        }
+        nav .logo {
+            font-family: var(--fuente-titulo);
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        nav .logo .verde { color: var(--verde-oscuro); }
+        nav .logo .marrón { color: var(--marrón); }
+        nav a {
+            color: var(--verde-oscuro);
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 1.5rem;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: var(--marrón);
+        }
+        /* ----- SECCIONES ----- */
+        section {
+            margin-bottom: 4rem;
+        }
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        .hero-text {
+            flex: 2;
+            min-width: 280px;
+        }
+        .hero-text .eslogan {
+            font-size: 1.2rem;
+            color: #444;
+            font-weight: 300;
+            margin: 0.5rem 0 1rem;
+            border-left: 5px solid var(--marrón);
+            padding-left: 1.2rem;
+        }
+        .hero-foto {
+            flex: 1;
+            min-width: 180px;
+            text-align: center;
+        }
+        .hero-foto img {
+            width: 100%;
+            max-width: 240px;
+            border-radius: 50%;
+            box-shadow: var(--sombra);
+            border: 6px solid var(--verde-claro);
+        }
+        .btn {
+            display: inline-block;
+            background: var(--marrón);
+            color: #fff;
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #7a4a2e;
+        }
+        /* ----- TARJETAS DE PROYECTOS ----- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: var(--gris);
+            border-radius: var(--radio);
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .card-body {
+            padding: 1.2rem 1.5rem 1.8rem;
+        }
+        .card-body .tag {
+            margin-bottom: 0.8rem;
+        }
+        .card-body p {
+            font-size: 0.95rem;
+            color: #444;
+        }
+        /* ----- TABLA FORMATIVA ----- */
+        .tabla-wrap {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--blanco);
+            border-radius: var(--radio);
+            overflow: hidden;
+            box-shadow: var(--sombra);
+        }
+        th {
+            background: var(--verde-oscuro);
+            color: #fff;
+            font-weight: 600;
+            padding: 0.8rem 1rem;
+            text-align: left;
+        }
+        td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #eae8e5;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .categoria {
+            font-weight: 600;
+            color: var(--marrón);
+        }
+        .categoria .verde { color: var(--verde-oscuro); }
+        .categoria .marrón { color: var(--marrón); }
+        /* ----- GALERÍA DE EVENTOS ----- */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        .galeria img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: var(--radio);
+            box-shadow: var(--sombra);
+            transition: transform 0.2s;
+        }
+        .galeria img:hover {
+            transform: scale(1.02);
+        }
+        /* ----- CONTACTO ----- */
+        .contacto-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+            background: var(--gris);
+            padding: 2rem;
+            border-radius: var(--radio);
+        }
+        .contacto-flex div {
+            flex: 1;
+            min-width: 200px;
+        }
+        .contacto-flex h4 {
+            font-family: var(--fuente-titulo);
+            color: var(--verde-oscuro);
+            margin-bottom: 0.6rem;
+        }
+        .contacto-flex a {
+            color: var(--marrón);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .contacto-flex a:hover {
+            text-decoration: underline;
+        }
+        .logos-afiliacion {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        .logos-afiliacion img {
+            max-height: 50px;
+            width: auto;
+            opacity: 0.8;
+            filter: grayscale(20%);
+        }
+        /* ----- FOOTER ----- */
+        footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #777;
+            border-top: 2px solid var(--verde-claro);
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+        /* ----- RESPONSIVE ----- */
+        @media (max-width: 700px) {
+            body { padding: 1rem; }
+            .container { padding: 1.5rem; }
+            h1 { font-size: 2.4rem; }
+            h2 { font-size: 1.8rem; }
+            nav { flex-direction: column; align-items: flex-start; }
+            nav a { margin-left: 0; margin-right: 1.2rem; }
+            .hero { flex-direction: column-reverse; text-align: center; }
+            .hero-text .eslogan { border-left: none; padding-left: 0; }
+            .contacto-flex { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ====== NAVEGACIÓN ====== -->
+    <nav>
+        <div class="logo">
+            <span class="verde">Elías</span><span class="marrón">Brown</span>
+        </div>
+        <div>
+            <a href="#sobre">Sobre mí</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#formacion">Formación</a>
+            <a href="#eventos">Eventos</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- ====== HERO ====== -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>
+                <span class="verde">Elías</span><br />
+                <span class="marrón">Brown</span>
+            </h1>
+            <p class="subtitulo">Biólogo · Agroecólogo · Bioconstructor</p>
+            <div class="eslogan">
+                “Diseño participativo, formación vivencial y eventos comunitarios para la transición ecosocial”
+            </div>
+            <p style="margin: 1.2rem 0; max-width: 500px;">
+                Más de 40 talleres, 15 años en bioconstrucción y un proyecto municipal de referencia en agroecología.
+                Busco integrarme en Granada para seguir tejiendo redes entre campo, comunidad y conocimiento.
+            </p>
+            <a href="#contacto" class="btn">Hablemos</a>
+        </div>
+        <div class="hero-foto">
+            <!-- Sustituye la URL por tu foto -->
+            <img src="https://via.placeholder.com/400x400/5A6B53/FFFFFF?text=Tu+Foto" alt="Elías Brown" />
+        </div>
+    </section>
+
+    <!-- ====== SOBRE MÍ ====== -->
+    <section id="sobre">
+        <h2>Sobre mí</h2>
+        <div style="max-width: 800px;">
+            <p>
+                Soy biólogo especializado en agroecología, con formación de grado y máster, y director del <strong>Huerto-Museo Ecológico de Gordoncillo</strong> (León) desde 2023, un proyecto público con vocación sociocultural y educativa.
+            </p>
+            <p style="margin-top: 0.8rem;">
+                Durante 15 años he sido miembro activo de la asociación <strong>ESTEPA</strong>, referente en bioconstrucción en España, donde he participado en proyectos de diseño, dirección de obra y formación en técnicas de tierra, cal y balas de paja.
+            </p>
+            <p style="margin-top: 0.8rem;">
+                He impartido más de 40 talleres y cursos en agroecología, bioconstrucción y patrimonio natural, y he dinamizado eventos comunitarios que combinan música, mimo y educación ambiental. Mi enfoque une lo técnico, lo artístico y lo participativo.
+            </p>
+            <p style="margin-top: 0.8rem; font-style: italic; color: var(--marrón);">
+                “Creo en la transición ecosocial como un proceso lento, construido con calidad, calma y manos en la tierra.”
+            </p>
+        </div>
+    </section>
+
+    <!-- ====== PROYECTOS ====== -->
+    <section id="proyectos">
+        <h2>Proyectos destacados</h2>
+        <div class="grid-2">
+            <!-- Tarjeta 1: Huerto-Museo -->
+            <div class="card">
+                <img src="https://via.placeholder.com/600x400/5A6B53/FFFFFF?text=Huerto-Museo" alt="Huerto-Museo de Gordoncillo" />
+                <div class="card-body">
+                    <span class="tag">Agroecología</span>
+                    <h3>Huerto-Museo Ecológico de Gordoncillo</h3>
+                    <p>Dirección y dinamización de un proyecto público que integra cultivo ecológico, patrimonio local y actividades artísticas. Más de 500 visitantes anuales y 20 talleres realizados.</p>
+                </div>
+            </div>
+            <!-- Tarjeta 2: Bioconstrucción -->
+            <div class="card">
+                <img src="https://via.placeholder.com/600x400/9C5E3A/FFFFFF?text=Bioconstrucción" alt="Proyecto de bioconstrucción" />
+                <div class="card-body">
+                    <span class="tag">Bioconstrucción</span>
+                    <h3>Rehabilitación con balas de paja</h3>
+                    <p>Diseño y dirección de obra en una vivienda rural utilizando técnicas de balas de paja, cal y tierra. Proyecto colaborativo con la asociación ESTEPA.</p>
+                </div>
+            </div>
+        </div>
+        <p style="margin-top: 1.5rem; text-align: right;">
+            <a href="#" style="color: var(--marrón); font-weight: 600;">Ver más proyectos →</a>
+        </p>
+    </section>
+
+    <!-- ====== OFERTA FORMATIVA ====== -->
+    <section id="formacion">
+        <h2>Oferta formativa</h2>
+        <div class="tabla-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Categoría</th>
+                        <th>Talleres y cursos</th>
+                        <th>Duración orientativa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="categoria"><span class="verde">●</span> Agroecología</td>
+                        <td>Introducción al huerto ecológico · Compostaje y vermicultura · Manejo integrado de plagas · Diseño con permacultura</td>
+                        <td>4h – 1 fin de semana</td>
+                    </tr>
+                    <tr>
+                        <td class="categoria"><span class="marrón">●</span> Bioconstrucción</td>
+                        <td>Muros de tierra (cob, adobe) · Cales y revestimientos · Estructuras con balas de paja · Cubiertas vegetales</td>
+                        <td>8h – 2 fines de semana</td>
+                    </tr>
+                    <tr>
+                        <td class="categoria"><span class="verde" style="opacity:0.6;">●</span> Patrimonio natural/cultural</td>
+                        <td>Flora silvestre comestible · Restauración de paisajes · Etnobotánica local · Dinamización de museos vivos</td>
+                        <td>4h – jornada</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="margin-top: 0.8rem; font-size: 0.9rem; color: #555;">
+            *Todos los talleres se adaptan a colectivos, centros educativos o empresas según necesidades.
+        </p>
+    </section>
+
+    <!-- ====== EVENTOS ====== -->
+    <section id="eventos">
+        <h2>Eventos comunitarios</h2>
+        <p style="margin-bottom: 1rem;">
+            Dinamización con música, mimo, teatro y mucho contacto con la tierra. Algunos momentos destacados:
+        </p>
+        <div class="galeria">
+            <img src="https://via.placeholder.com/400x300/5A6B53/FFFFFF?text=Taller+compostaje" alt="Taller de compostaje" />
+            <img src="https://via.placeholder.com/400x300/9C5E3A/FFFFFF?text=Muro+de+tierra" alt="Construcción con tierra" />
+            <img src="https://via.placeholder.com/400x300/b8cfc1/333333?text=Payaso+en+huerto" alt="Payaso en el huerto" />
+            <img src="https://via.placeholder.com/400x300/5A6B53/FFFFFF?text=Reforestación" alt="Reforestación comunitaria" />
+        </div>
+        <p style="margin-top: 0.8rem; font-size: 0.9rem; color: #555;">
+            Más de 10 eventos anuales, con participación media de 40 personas por actividad.
+        </p>
+    </section>
+
+    <!-- ====== CONTACTO ====== -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <div class="contacto-flex">
+            <div>
+                <h4>📬 Email</h4>
+                <p><a href="mailto:elias@brown.eco">elias@brown.eco</a></p>
+                <h4 style="margin-top: 1rem;">📱 Teléfono</h4>
+                <p><a href="tel:+34689999999">+34 689 99 99 99</a></p>
+            </div>
+            <div>
+                <h4>🌐 Web</h4>
+                <p><a href="#">eliasbrown.com</a> (próximamente)</p>
+                <h4 style="margin-top: 1rem;">🔗 Redes</h4>
+                <p>
+                    <a href="#">LinkedIn</a> · <a href="#">Instagram</a>
+                </p>
+            </div>
+            <div>
+                <h4>🏛️ Afiliaciones</h4>
+                <div class="logos-afiliacion">
+                    <!-- Sustituye los src por tus logos reales -->
+                    <img src="https://via.placeholder.com/120x50/5A6B53/FFFFFF?text=ESTEPA" alt="ESTEPA" />
+                    <img src="https://via.placeholder.com/120x50/9C5E3A/FFFFFF?text=TRISE" alt="TRISE" />
+                </div>
+                <p style="font-size: 0.8rem; color: #777; margin-top: 0.5rem;">
+                    Miembro de ESTEPA (15 años) y vinculado a TRISE.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== FOOTER ====== -->
+    <footer>
+        <p>
+            &copy; 2026 Elías Brown · Diseñado con <span style="color: var(--marrón);">❤</span> y mucho barro.
+        </p>
+        <p style="margin-top: 0.4rem; font-size: 0.75rem;">
+            Este sitio es un primer boceto de mi portfolio profesional.
+        </p>
+    </footer>
+
+</div>
+</body>
+</html>
