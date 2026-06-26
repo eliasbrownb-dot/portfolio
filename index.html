@@ -186,8 +186,9 @@
         .card img {
             width: 100%;
             height: 200px;
-            object-fit: cover;
+            object-fit: contain;   /* ← CAMBIADO POR COVER - EXPERIMENTOS CON DEEPSEEK */
             display: block;
+            background-color: #f0ede8; /* color de fondo para relleno */
         }
         .card-body {
             padding: 1.2rem 1.5rem 1.8rem;
@@ -380,8 +381,10 @@
                 <img src="plano.jpeg" alt="Huerto-Museo de Gordoncillo" />
                 <div class="card-body">
                     <span class="tag">Agroecología</span>
-                    <h3>Huerto-Museo Ecológico de Gordoncillo</h3>
-                    <p>Dirección y dinamización de un proyecto público que integra cultivo ecológico, patrimonio local y actividades artísticas. Más de 500 visitantes anuales y 20 talleres realizados.</p>
+                    <h3>Conectividad Ecológica Urbana en el distrito de Embajadores</h3>
+                    <p>Propuesta para proyecto del distrito Embajadores de Madrid, utiliza la jardinería comunitaria como vehículo de integración intergeneracional e intercultural. Evaluación de parámetros ecológicos en zonas verdes
+urbanas mediante muestreo y análisis estadístico.</p>
+                    <ul><li>Peatonalización e implementación gradual de jardines comunitarios.</li><li>Sistema de riego a favor de pendiente aprovechando la orografía</li><li>Posición estratégica en el centro de Madrid</li></ul>
                 </div>
             </div>
             <!-- Tarjeta 2: Bioconstrucción -->
